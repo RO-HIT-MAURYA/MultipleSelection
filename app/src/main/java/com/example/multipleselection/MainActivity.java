@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 31);
-
-
     }
 
     @Override
@@ -75,5 +74,8 @@ public class MainActivity extends AppCompatActivity {
 
         ClipData clipData = data.getClipData();
         Log.e("clipDataIs", clipData+"");
+
+        ((ImageView)findViewById(R.id.imageView)).setImageURI(clipData.getItemAt(0).getUri());
+        ((ImageView)findViewById(R.id.iV)).setImageURI(clipData.getItemAt(1).getUri());
     }
 }
